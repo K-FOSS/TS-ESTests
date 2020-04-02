@@ -1,12 +1,11 @@
 {
-  "name": "ts-core",
+  "name": "@k-foss/ts-estests",
   "version": "0.0.1",
-  "description": "TS-Core is a github repo template for TypeScript Projects",
+  "description": "@k-foss/ts-estests is a lightweight testing framework for use with ESNext & ESModules code",
   "main": "src/index.ts",
   "type": "module",
   "private": true,
   "scripts": {
-    "test": "jest",
     "start:debug": "node --nolazy --inspect-brk=0.0.0.0 --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts"
   },
   "dependencies": {},

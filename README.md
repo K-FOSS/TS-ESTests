@@ -1,13 +1,8 @@
-# K-FOSS/TS-Core Repository Template
+# K-FOSS/TS-ESTests
 
-This is a TypeScript project template.
+This is a lightweight testing framework for use with ESNext & ESModules code. Orignally created within my [@K-FOSS/TS-ESNode](https://github.com/K-FOSS/TS-ESNode) repo for testing.
 
-## Usage
-
-On the GitHub Website click "Use this template"
-
-Once you have cloned the template locally search and replace and usage of TS-Core with the name of your new project
 
 ## Development
 
-This template is designed to be developed within a VSCode Remote Container. When you open is VSCode you should get a notification prompting to reopen in container.
+This is designed to be developed within a VSCode Remote Container. When you open is VSCode you should get a notification prompting to reopen in container.
