@@ -46,8 +46,7 @@
     },
     "plugins": [
       "@typescript-eslint",
-      "prettier",
-      "jest"
+      "prettier"
     ],
     "extends": [
       "standard",
