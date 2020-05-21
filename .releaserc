@@ -1,0 +1,32 @@
+{
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits"
+      }
+    ],
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "docs/CHANGELOG.md"
+      }
+    ],
+    "@semantic-release/npm",
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "docs/CHANGELOG.md",
+          "package.json",
+          "package-lock.json"
+        ]
+      }
+    ],
+    "@semantic-release/github"
+  ],
+  "branches": [
+    "master"
+  ]
+}

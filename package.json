@@ -6,37 +6,43 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "start:debug": "node --nolazy --inspect-brk=0.0.0.0 --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts"
+    "test": "echo TODO",
+    "prepublishOnly": "npm run build",
+    "build": "node --loader @k-foss/ts-esnode --experimental-modules --experimental-specifier-resolution=node ./bin/build.ts",
+    "start:debug": "node --nolazy --inspect-brk=0.0.0.0 --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts",
+    "prettier": "prettier --config .prettierrc --check \"src/**/*ts\" \"bin/**/*.ts\"",
+    "lint": "eslint ./src --ext .js,.ts"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@k-foss/ts-worker": "^1.0.2"
+  },
   "devDependencies": {
     "@k-foss/ts-esnode": "1.4.1",
     "@types/node": "14.0.4",
-    "@typescript-eslint/eslint-plugin": "2.26.0",
-    "@typescript-eslint/parser": "2.26.0",
-    "eslint": "6.8.0",
+    "@typescript-eslint/eslint-plugin": "^3.0.0",
+    "@typescript-eslint/parser": "^3.0.0",
+    "eslint": "^7.0.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-config-standard": "14.1.1",
     "eslint-plugin-import": "2.20.2",
-    "eslint-plugin-jest": "23.8.2",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.1",
-    "nodemon": "2.0.4",
-    "prettier": "2.0.2",
+    "prettier": "^2.0.5",
     "typescript": "3.9.3"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "email": "me@kristianjones.dev",
+    "name": "Kristian Jones",
+    "url": "https://kristianjones.dev"
+  },
+  "license": "MIT",
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "project": "./tsconfig.json",
       "tsconfigRootDir": "."
-    },
-    "env": {
-      "jest/globals": true
     },
     "plugins": [
       "@typescript-eslint",
@@ -58,7 +64,6 @@
           "varsIgnorePattern": "_.+"
         }
       ],
-      "@typescript-eslint/camelcase": "warn",
       "@typescript-eslint/no-var-requires": "warn",
       "@typescript-eslint/no-object-literal-type-assertion": "off",
       "@typescript-eslint/explicit-function-return-type": "off",
