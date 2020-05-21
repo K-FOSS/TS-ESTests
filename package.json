@@ -5,6 +5,12 @@
   "main": "src/index.ts",
   "type": "module",
   "private": true,
+  "files": [
+    "dist/**/*"
+  ],
+  "bin": {
+    "ts-estest": "./dist/cli.js"
+  },
   "scripts": {
     "test": "echo TODO",
     "prepublishOnly": "npm run build",
