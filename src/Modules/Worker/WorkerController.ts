@@ -106,12 +106,8 @@ export class WorkerController extends BaseEventEmitter<
         encoding: 'utf-8',
       });
 
-      console.log(`directoryPath: ${directoryPath}`);
-
       const testFiles = await Promise.all(
         directoryContents.map(async (dirContent) => {
-          console.log('dirContent: ', dirContent);
-
           const contentName = dirContent.name;
           const contentPath = resolvePath(directoryPath, contentName);
 
