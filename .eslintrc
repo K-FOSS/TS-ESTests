@@ -57,7 +57,7 @@
 
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/require-await.md
     "require-await": "off",
-    "@typescript-eslint/require-await": "error",
+    "@typescript-eslint/require-await": "off",
 
     "comma-dangle": ["error", "always-multiline"],
 

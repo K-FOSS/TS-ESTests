@@ -174,6 +174,7 @@ export class WorkerController extends BaseEventEmitter<
        */
       worker.on('message', this.handleWorkerMessage(worker));
 
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       this.on('done', () => worker.terminate());
     }
   }
@@ -282,6 +283,6 @@ export class WorkerController extends BaseEventEmitter<
      */
     this.startPolling();
 
-    return new Promise((resolve, reject) => this.on('done', () => resolve()));
+    return new Promise((resolve) => this.on('done', () => resolve()));
   }
 }

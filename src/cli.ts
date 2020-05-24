@@ -56,8 +56,11 @@ async function runCLI(): Promise<void> {
   }
 }
 
-try {
-  runCLI().then(() => console.log('Tests finished'));
-} catch {
-  console.error('Error while running tests');
-}
+runCLI().then(
+  () => {
+    console.log('Tests done');
+  },
+  () => {
+    console.error('Error while running tests');
+  },
+);
