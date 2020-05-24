@@ -5,6 +5,7 @@ import { isAssertionError } from '../../Utils/isAssertionError';
 import { timeout } from '../../Utils/timeout';
 import { TestSuite } from '../TestSuite';
 import { WorkerMessage, WorkerMessageType } from './WorkerMessages';
+import { pathToFileURL } from 'url';
 
 if (!parentPort) throw new Error('Invalid worker. no Parent Thread port');
 
@@ -51,9 +52,9 @@ parentPort.addListener(
   'message',
   // eslint-disable-next-line @typescript-eslint/no-misused-promises
   async (filePath: string): Promise<void> => {
-    console.log(filePath);
-
-    const testSuite = (await import(filePath)) as TestSuiteImport;
+    const testSuite = (await import(
+      pathToFileURL(filePath).href
+    )) as TestSuiteImport;
 
     await Promise.all(
       Object.values(testSuite).map(async (TestSuiteClass) => {
