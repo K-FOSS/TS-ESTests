@@ -1,16 +1,15 @@
 // src/cli.ts
 // #!/usr/bin/env node
 import { WorkerController } from './Modules/Worker/WorkerController';
-import { resolve as resolvePath } from 'path';
 import colors from 'colors';
 import { isAssertionError } from './Utils/isAssertionError';
 
-const testsPath = resolvePath('Tests');
+// const testsPath = resolvePath('Tests');
 
 async function runCLI(): Promise<void> {
   const workerController = new WorkerController();
 
-  await workerController.findTestFiles(testsPath);
+  await workerController.findTestFiles('Tests');
 
   await workerController.spawnWorkers(4);
 
