@@ -2,7 +2,11 @@
 export class Test {
   public name: string;
 
-  constructor(options: Partial<Test>) {
+  public success: boolean | undefined;
+
+  public error: Error | undefined;
+
+  public constructor(options: Partial<Test>) {
     Object.assign(this, options);
   }
 }

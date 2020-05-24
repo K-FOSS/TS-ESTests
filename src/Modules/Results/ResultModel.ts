@@ -4,13 +4,13 @@ import { Writable } from 'stream';
 export class Result {
   public output: string[] = [];
 
-  constructor(options: Partial<Result>) {
+  public constructor(options: Partial<Result>) {
     Object.assign(this, options);
   }
 
-  createWriteStream(): Writable {
+  public createWriteStream(): Writable {
     const writeStream = new Writable({
-      write: (data, _, done) => {
+      write: (data, _, done): void => {
         this.output.push(data);
         done();
       },

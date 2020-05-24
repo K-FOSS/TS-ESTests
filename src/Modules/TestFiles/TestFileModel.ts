@@ -1,12 +1,20 @@
+// src/Modules/Tests/TestFileModel.ts
 import { Test } from '../Tests/TestModel';
 
-// src/Modules/Tests/TestFileModel.ts
+export enum TestFileStatus {
+  PENDING,
+  RUNNING,
+  DONE,
+}
+
 export class TestFile {
   public path: string;
 
+  public status: TestFileStatus = TestFileStatus.PENDING;
+
   public tests: Test[] = [];
 
-  constructor(options: Partial<TestFile>) {
+  public constructor(options: Partial<TestFile>) {
     Object.assign(this, options);
   }
 }

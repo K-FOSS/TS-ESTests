@@ -10,6 +10,7 @@
     "alwaysStrict": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
+    "noFallthroughCasesInSwitch": true,
     "strictPropertyInitialization": false,
 
     // Source Maps
@@ -19,5 +20,5 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "include": ["src/**/*", "bin/**/*"]
+  "include": ["src/**/*", "bin/**/*", "__tests__/resolvePath.test.ts"]
 }
