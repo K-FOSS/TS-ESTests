@@ -20,7 +20,7 @@ async function runCLI(): Promise<void> {
 
     testFile.tests.map((test) => {
       if (typeof test.success === 'undefined') {
-        throw new Error('Fucker');
+        throw new Error('This error should never be thrown');
       }
 
       switch (test.success) {
