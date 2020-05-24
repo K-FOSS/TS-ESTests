@@ -4,8 +4,6 @@ import { WorkerController } from './Modules/Worker/WorkerController';
 import colors from 'colors';
 import { isAssertionError } from './Utils/isAssertionError';
 
-// const testsPath = resolvePath('Tests');
-
 async function runCLI(): Promise<void> {
   const workerController = new WorkerController();
 
