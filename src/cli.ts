@@ -5,7 +5,7 @@ import { resolve as resolvePath } from 'path';
 import colors from 'colors';
 import { AssertionError } from 'assert';
 
-const testsPath = resolvePath(`__tests__`);
+const testsPath = resolvePath('Tests');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function isAssertionError(object: any): object is AssertionError {
@@ -43,8 +43,9 @@ async function runCLI(): Promise<void> {
           console.log(`\t${colors.bgRed(`Test Suite - ${test.name}`)}`);
 
           if (isAssertionError(test.error)) {
+            console.log(`\t\t${colors.bgRed(test.error.message)}`);
             console.log(
-              `\t\tExpected ${colors.green(
+              `\t\t\tExpected ${colors.green(
                 test.error.expected,
               )} but got ${colors.bgRed(test.error.actual)}`,
             );

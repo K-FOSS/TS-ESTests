@@ -2,7 +2,7 @@
 import { parentPort } from 'worker_threads';
 import { WorkerMessage, WorkerMessageType } from './WorkerMessages';
 import { TestSuite } from '../TestSuite';
-import { strictEqual } from 'assert';
+import { strictEqual, AssertionError } from 'assert';
 import { timeout } from '../../Utils/timeout';
 
 if (!parentPort) throw new Error('Invalid worker. no Parent Thread port');
@@ -74,8 +74,15 @@ parentPort.addListener(
         } catch (err) {
           success = false;
 
+          // console.log((err as AssertionError).message);
+
           // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-          error = JSON.parse(JSON.stringify(err));
+          error = {
+            name: err.name,
+            expected: err.expected,
+            actual: err.actual,
+            message: err.message,
+          };
         }
 
         sendParentMessage({
