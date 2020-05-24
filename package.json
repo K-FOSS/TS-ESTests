@@ -5,8 +5,15 @@
   "main": "src/index.ts",
   "type": "module",
   "private": true,
+  "files": [
+    "dist/**/*"
+  ],
+  "bin": {
+    "ts-estest": "./dist/cli.js"
+  },
   "scripts": {
-    "test": "echo TODO",
+    "test": "node --loader @k-foss/ts-esnode --experimental-modules --experimental-specifier-resolution=node --experimental-import-meta-resolve ./src/cli.ts",
+    "dev": "nodemon",
     "prepublishOnly": "npm run build",
     "build": "node --loader @k-foss/ts-esnode --experimental-modules --experimental-specifier-resolution=node ./bin/build.ts",
     "start:debug": "node --nolazy --inspect-brk=0.0.0.0 --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts",
@@ -14,7 +21,8 @@
     "lint": "eslint ./src --ext .js,.ts"
   },
   "dependencies": {
-    "@k-foss/ts-worker": "^1.0.4"
+    "@k-foss/ts-worker": "^1.0.5",
+    "colors": "^1.4.0"
   },
   "devDependencies": {
     "@k-foss/ts-esnode": "1.4.1",
@@ -29,6 +37,7 @@
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.1",
+    "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
     "typescript": "3.9.3"
   },
@@ -37,48 +46,5 @@
     "name": "Kristian Jones",
     "url": "https://kristianjones.dev"
   },
-  "license": "MIT",
-  "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "project": "./tsconfig.json",
-      "tsconfigRootDir": "."
-    },
-    "plugins": [
-      "@typescript-eslint",
-      "prettier"
-    ],
-    "extends": [
-      "standard",
-      "plugin:@typescript-eslint/recommended",
-      "prettier",
-      "prettier/standard",
-      "prettier/@typescript-eslint"
-    ],
-    "rules": {
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          "args": "none",
-          "varsIgnorePattern": "_.+"
-        }
-      ],
-      "@typescript-eslint/no-var-requires": "warn",
-      "@typescript-eslint/no-object-literal-type-assertion": "off",
-      "@typescript-eslint/explicit-function-return-type": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "@typescript-eslint/no-non-null-assertion": "off",
-      "@typescript-eslint/explicit-member-accessibility": "off",
-      "no-unused-vars": "off",
-      "comma-dangle": [
-        "error",
-        "always-multiline"
-      ],
-      "semi": "off",
-      "@typescript-eslint/semi": [
-        "error"
-      ],
-      "prettier/prettier": "error"
-    }
-  }
+  "license": "MIT"
 }
