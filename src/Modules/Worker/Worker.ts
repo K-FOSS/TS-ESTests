@@ -1,9 +1,10 @@
 // src/Modules/Tests/TestRunnerWorker.ts
+import { strictEqual } from 'assert';
 import { parentPort } from 'worker_threads';
-import { WorkerMessage, WorkerMessageType } from './WorkerMessages';
-import { TestSuite } from '../TestSuite';
-import { strictEqual, AssertionError } from 'assert';
+import { isAssertionError } from '../../Utils/isAssertionError';
 import { timeout } from '../../Utils/timeout';
+import { TestSuite } from '../TestSuite';
+import { WorkerMessage, WorkerMessageType } from './WorkerMessages';
 
 if (!parentPort) throw new Error('Invalid worker. no Parent Thread port');
 
@@ -74,15 +75,19 @@ parentPort.addListener(
         } catch (err) {
           success = false;
 
-          // console.log((err as AssertionError).message);
-
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-          error = {
-            name: err.name,
-            expected: err.expected,
-            actual: err.actual,
-            message: err.message,
-          };
+          if (isAssertionError(err)) {
+            error = {
+              name: err.name,
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+              expected: err.expected,
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+              actual: err.actual,
+              message: err.message,
+            };
+          } else {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+            error = err;
+          }
         }
 
         sendParentMessage({

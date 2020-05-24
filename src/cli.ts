@@ -3,18 +3,9 @@
 import { WorkerController } from './Modules/Worker/WorkerController';
 import { resolve as resolvePath } from 'path';
 import colors from 'colors';
-import { AssertionError } from 'assert';
+import { isAssertionError } from './Utils/isAssertionError';
 
 const testsPath = resolvePath('Tests');
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function isAssertionError(object: any): object is AssertionError {
-  if ('actual' in object) {
-    return true;
-  }
-
-  return false;
-}
 
 async function runCLI(): Promise<void> {
   const workerController = new WorkerController();
