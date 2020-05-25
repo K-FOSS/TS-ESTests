@@ -18,7 +18,7 @@
     "build": "tsc -p ./tsconfig.build.json",
     "global": "npm i -g && ts-estest",
     "pretest": "npm run build",
-    "test": "node --loader @k-foss/ts-esnode --experimental-modules --experimental-specifier-resolution=node --experimental-import-meta-resolve ./src/cli.ts",
+    "test": "node --loader @k-foss/ts-esnode --experimental-modules --experimental-specifier-resolution=node --experimental-import-meta-resolve ./src/cli.ts -- ./Tests",
     "dev": "nodemon",
     "prepublishOnly": "npm run build",
     "start:debug": "node --nolazy --inspect-brk=0.0.0.0 --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts",
