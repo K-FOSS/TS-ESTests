@@ -20,5 +20,5 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "include": ["src/**/*", "bin/**/*", "__tests__/resolvePath.test.ts"]
+  "include": ["src/**/*", "__tests__/resolvePath.test.ts"]
 }

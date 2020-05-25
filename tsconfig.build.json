@@ -13,9 +13,11 @@
     "strictPropertyInitialization": false,
 
     // Source Maps
-    "inlineSourceMap": true,
+    "inlineSourceMap": false,
     "outDir": "./dist",
     "rootDir": "./src",
+
+    "declaration": true,
 
     // Features
     "experimentalDecorators": true,
