@@ -22,7 +22,7 @@
     "dev": "nodemon",
     "prepublishOnly": "npm run build",
     "start:debug": "node --nolazy --inspect-brk=0.0.0.0 --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts",
-    "prettier": "prettier --config .prettierrc --check \"src/**/*ts\" \"bin/**/*.ts\"",
+    "prettier": "prettier --config .prettierrc --check \"src/**/*ts\"",
     "lint": "eslint ./src --ext .js,.ts"
   },
   "dependencies": {
