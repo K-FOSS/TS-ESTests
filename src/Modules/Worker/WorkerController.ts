@@ -140,7 +140,7 @@ export class WorkerController extends BaseEventEmitter<
    */
   public async spawnWorkers(threadCount: number): Promise<void> {
     const workerModulePath = await import.meta.resolve(
-      './Worker.ts',
+      './Worker',
       import.meta.url,
     );
 

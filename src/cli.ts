@@ -1,13 +1,22 @@
+#!/usr/bin/env sh
 // src/cli.ts
-// #!/usr/bin/env node
+':'; // ; exec "$(command -v node || command -v nodejs)" --loader @k-foss/ts-esnode --experimental-modules --experimental-specifier-resolution=node --experimental-import-meta-resolve "$0" "$@"
+
 import { WorkerController } from './Modules/Worker/WorkerController';
 import colors from 'colors';
 import { isAssertionError } from './Utils/isAssertionError';
 
+if (process.argv.length < 3) {
+  throw new Error('Provide the path of the tests folder');
+}
+
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const path = process.argv.pop()!;
+
 async function runCLI(): Promise<void> {
   const workerController = new WorkerController();
 
-  await workerController.findTestFiles('Tests');
+  await workerController.findTestFiles(path);
 
   await workerController.spawnWorkers(4);
 
@@ -49,7 +58,7 @@ runCLI().then(
   () => {
     console.log('Tests done');
   },
-  () => {
-    console.error('Error while running tests');
+  (err) => {
+    console.error('Error while running tests', err);
   },
 );

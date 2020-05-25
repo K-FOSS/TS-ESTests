@@ -2,20 +2,25 @@
   "name": "@k-foss/ts-estests",
   "version": "0.0.1",
   "description": "@k-foss/ts-estests is a lightweight testing framework for use with ESNext & ESModules code",
+  "repository": "https://github.com/K-FOSS/TS-ESTests",
   "main": "src/index.ts",
   "type": "module",
-  "private": true,
+  "private": false,
   "files": [
-    "dist/**/*"
+    "dist/**/*",
+    "README.md"
   ],
   "bin": {
-    "ts-estest": "./dist/cli.js"
+    "ts-estest": "dist/cli.js"
   },
   "scripts": {
+    "start": "npm run build && npm run global",
+    "build": "tsc -p ./tsconfig.build.json",
+    "global": "npm i -g && ts-estest",
+    "pretest": "npm run build",
     "test": "node --loader @k-foss/ts-esnode --experimental-modules --experimental-specifier-resolution=node --experimental-import-meta-resolve ./src/cli.ts",
     "dev": "nodemon",
     "prepublishOnly": "npm run build",
-    "build": "node --loader @k-foss/ts-esnode --experimental-modules --experimental-specifier-resolution=node ./bin/build.ts",
     "start:debug": "node --nolazy --inspect-brk=0.0.0.0 --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts",
     "prettier": "prettier --config .prettierrc --check \"src/**/*ts\" \"bin/**/*.ts\"",
     "lint": "eslint ./src --ext .js,.ts"
@@ -23,6 +28,10 @@
   "dependencies": {
     "@k-foss/ts-worker": "^1.0.5",
     "colors": "^1.4.0"
+  },
+  "peerDependencies": {
+    "typescript": ">=3.7",
+    "@k-foss/ts-esnode": ">=1.4.1"
   },
   "devDependencies": {
     "@k-foss/ts-esnode": "1.4.1",
@@ -45,6 +54,9 @@
     "email": "me@kristianjones.dev",
     "name": "Kristian Jones",
     "url": "https://kristianjones.dev"
+  },
+  "engines": {
+    "node": ">= 13.9"
   },
   "license": "MIT"
 }

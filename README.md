@@ -19,7 +19,46 @@ Install the module
 npm install @k-foss/ts-estests
 ```
 
-Checkout [examples/TalkingWorker](./Examples/TalkingWorker)
+Test Suite [`Tests/Add.test.ts`]
+
+```ts
+// Tests/AddTest/add.test.ts
+import { TestSuite } from '@k-foss/ts-estests';
+import { strictEqual } from 'assert';
+import { add } from '../src/Add';
+
+export class AddTest extends TestSuite {
+  public testName = 'addTest';
+
+  public async test(): Promise<void> {
+    strictEqual(add(1, 1), 2, 'add(1, 1) === 2');
+
+    strictEqual(add(1, 2), 3, 'add(1, 2) === 3');
+
+    strictEqual(add(5, 5), 10, 'add(5, 5) === 10');
+  }
+}
+```
+
+Source file your testing `src/Add.ts`
+
+```ts
+// src/Add.ts
+export function add(a: number, b: number): number {
+  return a + b;
+}
+```
+
+Example `package.json`
+
+```json
+{
+  "type": "module",
+  "scripts": {
+    "test": "ts-estest ./Tests"
+  }
+}
+```
 
 ## Development
 
