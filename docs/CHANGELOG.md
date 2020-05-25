@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/K-FOSS/TS-ESTests/compare/v1.0.0...v1.0.1) (2020-05-25)
+
+
+### Bug Fixes
+
+* **tsconfig:** Enable declaration ([ccd8674](https://github.com/K-FOSS/TS-ESTests/commit/ccd8674a4c7c7e9067298fcf3dc5135b38fb2c90))
+
 # 1.0.0 (2020-05-25)
 
 
