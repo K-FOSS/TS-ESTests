@@ -49,6 +49,8 @@ async function runCLI(): Promise<void> {
                 test.error.expected,
               )} but got ${colors.bgRed(test.error.actual)}`,
             );
+          } else {
+            console.error(`\t\t`, test.error);
           }
 
           break;
