@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/K-FOSS/TS-ESTests/compare/v1.0.3...v1.0.4) (2020-05-28)
+
+
+### Bug Fixes
+
+* **Test Errors:** Handle and serve errors properly ([#32](https://github.com/K-FOSS/TS-ESTests/issues/32)) ([47c3b7c](https://github.com/K-FOSS/TS-ESTests/commit/47c3b7c6e5c80f0ab7ece40cd7abbfc74f17f02a))
+
 ## [1.0.3](https://github.com/K-FOSS/TS-ESTests/compare/v1.0.2...v1.0.3) (2020-05-28)
 
 
