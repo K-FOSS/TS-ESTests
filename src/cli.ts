@@ -22,6 +22,8 @@ async function runCLI(): Promise<void> {
 
   await workerController.startTesting();
 
+  let hasFailed = false;
+
   for (const testFile of workerController.testFiles) {
     console.log(
       `${colors.bgYellow(colors.black(`> Test File`))} ${testFile.path}`,
@@ -38,6 +40,7 @@ async function runCLI(): Promise<void> {
           break;
         case false:
           console.log(`\t${colors.bgRed(`Test Suite - ${test.name}`)}`);
+          hasFailed = true;
 
           if (isAssertionError(test.error)) {
             console.log(`\t\t${colors.bgRed(test.error.message)}`);
@@ -51,6 +54,10 @@ async function runCLI(): Promise<void> {
           break;
       }
     });
+  }
+
+  if (hasFailed) {
+    process.exit(1);
   }
 }
 
