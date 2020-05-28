@@ -1,6 +1,6 @@
 {
   "name": "@k-foss/ts-estests",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "@k-foss/ts-estests is a lightweight testing framework for use with ESNext & ESModules code",
   "repository": "https://github.com/K-FOSS/TS-ESTests",
   "main": "dist/index.js",

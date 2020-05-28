@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/K-FOSS/TS-ESTests/compare/v1.0.2...v1.0.3) (2020-05-28)
+
+
+### Bug Fixes
+
+* **cli:** Exit 1 if any tests error ([b724b7a](https://github.com/K-FOSS/TS-ESTests/commit/b724b7a2c3910f5ffa41ade3473ee5deb923a5ca))
+
 ## [1.0.2](https://github.com/K-FOSS/TS-ESTests/compare/v1.0.1...v1.0.2) (2020-05-28)
 
 
