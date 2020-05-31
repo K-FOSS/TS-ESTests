@@ -25,7 +25,7 @@ interface WorkerThread {
 }
 
 const controllerDefaultOptions: TestControllerOptions = {
-  testFileRegex: /.*(test|spec)\.ts/gm,
+  testFileRegex: /.*(test|spec)\.((ts|js)x?)$/gm,
 };
 
 interface WorkerControllerEventMap {
@@ -97,45 +97,41 @@ export class WorkerController extends BaseEventEmitter<
    */
   public async findTestFiles(rootDir: string): Promise<void> {
     const controllerOptions = this.options;
+    const testFiles = this.testFiles;
 
-    async function processDirectory(
-      directoryPath: string,
-    ): Promise<TestFile[]> {
+    async function processDirectory(directoryPath: string): Promise<void> {
       const directoryContents = await fs.readdir(directoryPath, {
         withFileTypes: true,
         encoding: 'utf-8',
       });
 
-      const testFiles = await Promise.all(
+      await Promise.all(
         directoryContents.map(async (dirContent) => {
           const contentName = dirContent.name;
           const contentPath = resolvePath(directoryPath, contentName);
 
+          if (controllerOptions.testFileRegex.test(contentName)) {
+            testFiles.push(
+              new TestFile({
+                path: contentPath,
+              }),
+            );
+
+            return;
+          }
+
           if (contentName === 'node_modules') {
-            return [];
+            return;
           }
 
           if (dirContent.isDirectory()) {
             return processDirectory(contentPath);
           }
-
-          if (controllerOptions.testFileRegex.test(dirContent.name)) {
-            return [
-              new TestFile({
-                path: contentPath,
-              }),
-            ];
-          }
-
-          return [];
         }),
       );
-
-      return testFiles.filter(Boolean).flat();
     }
 
-    const testFiles = await processDirectory(rootDir);
-    this.testFiles.push(...testFiles);
+    await processDirectory(rootDir);
   }
 
   /**
