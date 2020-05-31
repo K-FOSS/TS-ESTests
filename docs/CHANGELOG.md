@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/K-FOSS/TS-ESTests/compare/v1.0.4...v1.0.5) (2020-05-31)
+
+
+### Bug Fixes
+
+* Minor fix ([2c29e34](https://github.com/K-FOSS/TS-ESTests/commit/2c29e348143695a0004b6b9a7132d1f07c1b3762))
+
 ## [1.0.4](https://github.com/K-FOSS/TS-ESTests/compare/v1.0.3...v1.0.4) (2020-05-28)
 
 
