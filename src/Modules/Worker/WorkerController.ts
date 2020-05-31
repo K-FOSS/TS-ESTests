@@ -111,16 +111,20 @@ export class WorkerController extends BaseEventEmitter<
           const contentName = dirContent.name;
           const contentPath = resolvePath(directoryPath, contentName);
 
-          if (contentName === 'node_modules') return [];
+          if (contentName === 'node_modules') {
+            return [];
+          }
 
           if (dirContent.isDirectory()) {
             return processDirectory(contentPath);
           }
 
           if (controllerOptions.testFileRegex.test(dirContent.name)) {
-            return new TestFile({
-              path: contentPath,
-            });
+            return [
+              new TestFile({
+                path: contentPath,
+              }),
+            ];
           }
 
           return [];
@@ -205,7 +209,9 @@ export class WorkerController extends BaseEventEmitter<
           break;
         case WorkerMessageType.PUSH_TEST_SUITE:
           testFile = this.findTestFile(message.filePath);
-          if (!testFile) throw new Error('Worker sent invalid testFile');
+          if (!testFile) {
+            throw new Error('Worker sent invalid testFile');
+          }
 
           testFile.tests.push(
             new Test({
