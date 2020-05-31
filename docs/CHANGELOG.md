@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/K-FOSS/TS-ESTests/compare/v1.0.5...v1.0.6) (2020-05-31)
+
+
+### Bug Fixes
+
+* Fix parsing ([ce59760](https://github.com/K-FOSS/TS-ESTests/commit/ce59760962ec71de903ad2ba93e37804fddc7251))
+
 ## [1.0.5](https://github.com/K-FOSS/TS-ESTests/compare/v1.0.4...v1.0.5) (2020-05-31)
 
 
