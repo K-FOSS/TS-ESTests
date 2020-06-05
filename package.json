@@ -51,7 +51,7 @@
     "eslint-plugin-standard": "4.0.1",
     "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
-    "typescript": "3.9.3"
+    "typescript": "3.9.5"
   },
   "author": {
     "email": "me@kristianjones.dev",
