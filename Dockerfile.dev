@@ -1,6 +1,5 @@
-FROM node:alpine3.11
+FROM node:14.11-alpine3.12
 
-# Install Shadow non busybox for better user management & support
 RUN apk add --no-cache git python3 build-base
 
 # Add Sudo to allow occasional usage of root. I wish I could remove this but I can't seem to get the node_modules volume working correctly.

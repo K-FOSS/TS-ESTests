@@ -5,11 +5,9 @@
     // This dev container does include /bin/bash if you prefer to use it instead of ash.
     "terminal.integrated.shell.linux": "/bin/sh"
   },
-
   "remoteEnv": {
     "SHELL": "/bin/sh"
   },
-
   "extensions": [
     "GitHub.vscode-pull-request-github",
     "esbenp.prettier-vscode",
@@ -22,5 +20,5 @@
   "mounts": [
     "source=ts-estests-modules,target=/workspace/node_modules,type=volume"
   ],
-  "postCreateCommand": "sudo chown node node_modules && npm i"
+  "postCreateCommand": "sudo chown -R node node_modules && npm i"
 }
