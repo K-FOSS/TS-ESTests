@@ -5,19 +5,33 @@
 
 version: 2
 updates:
+  # Maintain dependencies for GitHub Actions
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: daily
+    assignees:
+      - KristianFJones
+    reviewers:
+      - KristianFJones
 
-  - package-ecosystem: docker
-    directory: /
-    schedule:
-      interval: daily
-
-
+  # Maintain dependencies for npm
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: daily
     versioning-strategy: increase
+    assignees:
+      - KristianFJones
+    reviewers:
+      - KristianFJones
+
+  # Maintain dependencies for Docker
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: daily
+    assignees:
+      - KristianFJones
+    reviewers:
+      - KristianFJones
