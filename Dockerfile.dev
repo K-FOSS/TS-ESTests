@@ -1,11 +1,1 @@
-FROM node:14.11-alpine3.12
-
-RUN apk add --no-cache git python3 build-base
-
-# Add Sudo to allow occasional usage of root. I wish I could remove this but I can't seem to get the node_modules volume working correctly.
-RUN apk add --no-cache sudo \
-  && echo node ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/node \
-  && chmod 0440 /etc/sudoers.d/node
-
-
-CMD [ "tail", "-f", "/dev/null" ]
+FROM node:latest
