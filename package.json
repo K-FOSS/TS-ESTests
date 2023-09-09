@@ -18,10 +18,10 @@
     "build": "tsc -p ./tsconfig.build.json",
     "global": "npm i -g && ts-estest",
     "pretest": "npm run build",
-    "test": "node --loader @k-foss/ts-esnode --experimental-modules --experimental-specifier-resolution=node --experimental-import-meta-resolve ./src/cli.ts -- ./Tests",
+    "test": "node --loader extensionless --loader @k-foss/ts-esnode --experimental-modules --experimental-specifier-resolution=node --experimental-import-meta-resolve ./src/cli.ts -- ./Tests",
     "dev": "nodemon",
     "prepublishOnly": "npm run build",
-    "start:debug": "node --nolazy --inspect-brk=0.0.0.0 --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts",
+    "start:debug": "node --nolazy --inspect-brk=0.0.0.0 --loader extensionless --loader @k-foss/ts-esnode --experimental-modules --harmony-optional-chaining --experimental-specifier-resolution=node --harmony-top-level-await ./src/index.ts",
     "prettier": "prettier --config .prettierrc --check \"src/**/*ts\"",
     "lint": "eslint ./src --ext .js,.ts"
   },
@@ -30,8 +30,8 @@
     "colors": "^1.4.0"
   },
   "peerDependencies": {
-    "typescript": ">=3.7",
-    "@k-foss/ts-esnode": ">=1.4.1"
+    "@k-foss/ts-esnode": ">=1.4.1",
+    "typescript": ">=3.7"
   },
   "devDependencies": {
     "@k-foss/ts-esnode": "^1.7.0",
@@ -49,15 +49,16 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "extensionless": "^1.4.5",
     "nodemon": "^2.0.4",
     "prettier": "^2.1.2",
     "semantic-release": "^17.2.3",
-    "typescript": "^4.1.2"
+    "typescript": "^5.2.2"
   },
   "author": {
-    "email": "me@kristianjones.dev",
-    "name": "Kristian Jones",
-    "url": "https://kristianjones.dev"
+    "email": "entrapta@mylogin.space",
+    "name": "Entrapta Raven",
+    "url": "https://mylogin.space"
   },
   "engines": {
     "node": ">= 13.9"

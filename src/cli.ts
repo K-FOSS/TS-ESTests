@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 // src/cli.ts
-':'; // ; exec "$(command -v node || command -v nodejs)" --loader @k-foss/ts-esnode --experimental-modules --experimental-specifier-resolution=node --experimental-import-meta-resolve "$0" "$@"
+':'; // ; exec "$(command -v node || command -v nodejs)" --loader extensionless --loader @k-foss/ts-esnode --experimental-modules --experimental-specifier-resolution=node --experimental-import-meta-resolve "$0" "$@"
 
 import { WorkerController } from './Modules/Worker/WorkerController';
 import colors from 'colors';
