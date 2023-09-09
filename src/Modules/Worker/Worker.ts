@@ -87,6 +87,7 @@ parentPort.addListener(
             };
           } else {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+            // @ts-expect-error
             error = err;
           }
         }
