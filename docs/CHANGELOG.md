@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/K-FOSS/TS-ESTests/compare/v1.0.6...v1.0.7) (2023-09-09)
+
+
+### Bug Fixes
+
+* **Node:** Support newest versions of NodeJS ([0120026](https://github.com/K-FOSS/TS-ESTests/commit/01200267b7435edc63c8363d89a2a3eb6c29f516))
+
 ## [1.0.6](https://github.com/K-FOSS/TS-ESTests/compare/v1.0.5...v1.0.6) (2020-05-31)
 
 
