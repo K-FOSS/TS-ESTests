@@ -30,11 +30,11 @@
     "colors": "^1.4.0"
   },
   "peerDependencies": {
-    "@k-foss/ts-esnode": ">=1.4.1",
+    "@k-foss/ts-esnode": ">=2.0.3",
     "typescript": ">=3.7"
   },
   "devDependencies": {
-    "@k-foss/ts-esnode": "^1.7.0",
+    "@k-foss/ts-esnode": "^2.0.3",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "@types/node": "^14.14.10",
